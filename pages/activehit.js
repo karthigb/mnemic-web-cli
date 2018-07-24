@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Grid, Row, Col} from 'react-bootstrap'
 import MnemicNavbar from '../components/mnemicnavbar'
 
 export default class ActiveHit extends React.Component {
@@ -16,8 +16,14 @@ export default class ActiveHit extends React.Component {
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         </head>
         <MnemicNavbar/>
-        <h1>ACTIVE HIT</h1>
-        <div>Some stuff</div>
+        <Grid>
+          <Row>
+            <Col>ACTIVE HIT</Col>
+          </Row>
+          <Row>
+            <Col>See HIT info</Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

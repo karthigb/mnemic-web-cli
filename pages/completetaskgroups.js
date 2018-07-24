@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import {Navbar, Nav, NavItem, Grid, Row, Col} from 'react-bootstrap'
 import MnemicNavbar from '../components/mnemicnavbar'
 
 export default class CompleteTaskGroups extends React.Component {
@@ -16,8 +16,20 @@ export default class CompleteTaskGroups extends React.Component {
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         </head>
         <MnemicNavbar/>
-        <h1>CompleteTaskGroups</h1>
-        <div>Some stuff</div>
+        <Grid>
+          <Row>
+            <Col><h1>CompleteTaskGroups</h1></Col>
+          </Row>
+          <Row>
+            <Col>See HITS in group</Col>
+          </Row>
+          <Row>
+            <Col>See output</Col>
+          </Row>
+          <Row>
+            <Col>See input</Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

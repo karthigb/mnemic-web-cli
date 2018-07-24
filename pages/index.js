@@ -28,6 +28,18 @@ export default class Index extends React.Component {
               </Link>
             </Col>
           </Row>
+          <Row>
+            <Col>See active task groups</Col>
+          </Row>
+          <Row>
+            <Col>See past task groups</Col>
+          </Row>
+          <Row>
+            <Col>Create new tasks</Col>
+          </Row>
+          <Row>
+            <Col>Cleanup expiered tasks</Col>
+          </Row>
         </Grid>
       </div>
     )
