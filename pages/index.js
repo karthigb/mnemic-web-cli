@@ -16,7 +16,8 @@ export default class Index extends React.Component {
   }
 
   onActiveTaskGroupsClick(e) {
-    setState({view: 'activetaskgroups'})
+    console.log("changing state");
+    setState({view: 'activetaskgroups'});
   }
 
   render() {
