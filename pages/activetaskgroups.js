@@ -32,7 +32,7 @@ export default class ActiveTaskGroups extends React.Component {
           <Row>
             <Col>See input</Col>
           </Row>
-        <Grid>
+        </Grid>
       </div>
     )
   }
