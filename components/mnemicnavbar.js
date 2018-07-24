@@ -19,8 +19,8 @@ class MnemicNavbar extends React.Component {
           </Link>
           </Navbar.Header>
           <Nav>
-            <NavItem eventKey={1}>
-              <Link href="/activetaskgroups">View active task groups</Link>
+            <NavItem onClick={this.props.onActiveTasksClick}>
+              View active task groups
             </NavItem>
             <NavItem eventKey={2}>
               <Link href="/completetaskgroups">View archived task groups</Link>
