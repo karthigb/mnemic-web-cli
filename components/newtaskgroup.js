@@ -1,6 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col, FormGroup, ControlLabel, FormGroup,
-  Control, Label, FormControl, } from 'react-bootstrap'
+import {Grid, Row, Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap'
 
 class NewTaskGroup extends React.Component {
   constructor(props) {
