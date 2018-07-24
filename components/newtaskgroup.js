@@ -1,9 +1,13 @@
 import React from 'react'
-import {Grid, Row, Col} from 'react-bootstrap'
+import {Grid, Row, Col, FormGroup, ControlLabel, FormGroup,
+  Control, Label, FormControl, } from 'react-bootstrap'
 
 class NewTaskGroup extends React.Component {
   constructor(props) {
     super(props);
+    this.state= {
+      task_type:""
+    }
   }
 
   render() {
@@ -14,7 +18,19 @@ class NewTaskGroup extends React.Component {
             <Col><h1>CREATE A NEW TASK GROUP</h1></Col>
           </Row>
           <Row>
-            <Col>Choose task type</Col>
+            <Col>
+              <FormGroup>
+                <ControlLabel>Choose your task</ControlLabel>
+                <FormControl
+                  componentClass="select"
+                  value={this.state.task_type}>
+                    <option>Object detection</option>
+                    <option>Tweet sentiment tagging</option>
+                    <option>Image tagging</option>
+                </FormControl>
+              </FormGroup>
+            Choose task type
+            </Col>
           </Row>
           <Row>
             <Col>Add inputs</Col>
