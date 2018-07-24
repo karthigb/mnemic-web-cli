@@ -9,13 +9,13 @@ import Head from 'next/head'
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       view: 'home'
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
   }
 
-  onActiveTasksClick(e) {
+  onActiveTaskGroupsClick(e) {
     setState({view: 'activetaskgroups'})
   }
 

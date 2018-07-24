@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col} from 'react-bootstrap'
+import {Grid, Row, Col, Button} from 'react-bootstrap'
 
 class Home extends React.Component {
   constructor(props) {
@@ -15,9 +15,7 @@ class Home extends React.Component {
           </Row>
           <Row>
             <Col mdOffset={2}>
-              <Link href='/newtaskgroup'>
-                <Button bsStyle="primary" bsSize="lg">Create new tasks</Button>
-              </Link>
+              <Button bsStyle="primary" bsSize="lg">Create new tasks</Button>
             </Col>
           </Row>
           <Row>
