@@ -30,7 +30,6 @@ class NewTaskGroup extends React.Component {
                 <ControlLabel>Unlabelled images</ControlLabel>
                 <FormControl
                   type="text"
-                  value="{this.state.object_detection_images_file}"
                   placeholder="URL to newline delimited textfile of image links"/>
               </FormGroup>
             </Col>
