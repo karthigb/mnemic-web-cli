@@ -5,7 +5,8 @@ class NewTaskGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
-      task_type:""
+      task_type:"",
+      object_detection_images_file:""
     }
   }
 
@@ -26,8 +27,12 @@ class NewTaskGroup extends React.Component {
                     <option value="tweet_analysis" disabled="true">Tweet sentiment analysis</option>
                     <option value="image_tag" disabled="true">Image tagging</option>
                 </FormControl>
+                <ControlLabel>Unlabelled images</ControlLabel>
+                <FormControl
+                  type="text"
+                  value="{this.state.object_detection_images_file}"
+                  placeholder="URL to newline delimited textfile of image links"/>
               </FormGroup>
-            Choose task type
             </Col>
           </Row>
           <Row>
