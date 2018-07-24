@@ -14,15 +14,14 @@ class NewTaskGroup extends React.Component {
       <div>
         <Grid>
           <Row>
-            <Col><h1>CREATE A NEW TASK GROUP</h1></Col>
+            <Col><h1>Create a new human intelligence task project</h1></Col>
           </Row>
           <Row>
             <Col>
               <FormGroup>
                 <ControlLabel>Choose your task</ControlLabel>
                 <FormControl
-                  componentClass="select"
-                  value={this.state.task_type}>
+                  componentClass="select">
                     <option value="object_detection">Object detection</option>
                     <option value="tweet_analysis">Tweet sentiment analysis</option>
                     <option value="image_tag">Image tagging</option>
