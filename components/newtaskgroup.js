@@ -23,8 +23,8 @@ class NewTaskGroup extends React.Component {
                 <FormControl
                   componentClass="select">
                     <option value="object_detection">Object detection</option>
-                    <option value="tweet_analysis">Tweet sentiment analysis</option>
-                    <option value="image_tag">Image tagging</option>
+                    <option value="tweet_analysis" disabled="true">Tweet sentiment analysis</option>
+                    <option value="image_tag" disabled="true">Image tagging</option>
                 </FormControl>
               </FormGroup>
             Choose task type
