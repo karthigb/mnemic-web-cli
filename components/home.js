@@ -15,7 +15,7 @@ class Home extends React.Component {
           </Row>
           <Row>
             <Col mdOffset={2}>
-              <Button bsStyle="primary" bsSize="lg">Create new tasks</Button>
+              <Button bsStyle="primary" bsSize="lg" onClick={this.props.onNewTaskClick}>Create new tasks</Button>
             </Col>
           </Row>
           <Row>

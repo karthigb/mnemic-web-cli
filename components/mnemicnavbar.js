@@ -12,14 +12,14 @@ class MnemicNavbar extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              mnemic
+              <Nav onClick={this.props.onHomeClick}>mnemic</Nav>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
             <NavItem onClick={this.props.onActiveTaskGroupsClick}>
               View active task groups
             </NavItem>
-            <NavItem>
+            <NavItem onClick={this.props.onArchivedTaskGroupsClick}>
               View archived task groups
             </NavItem>
           </Nav>
