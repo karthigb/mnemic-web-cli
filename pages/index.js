@@ -17,7 +17,7 @@ export default class Index extends React.Component {
 
   onActiveTaskGroupsClick(e) {
     console.log("changing state");
-    setState({view: 'activetaskgroups'});
+    this.setState({view: 'activetaskgroups'});
   }
 
   render() {
@@ -37,7 +37,7 @@ export default class Index extends React.Component {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
         </Head>
-        <MnemicNavbar onActiveTasksClick={this.onActiveTasksClick}/>
+        <MnemicNavbar onActiveTaskGroupsClick={this.onActiveTaskGroupsClick}/>
         <div>
           {component}
         </div>
