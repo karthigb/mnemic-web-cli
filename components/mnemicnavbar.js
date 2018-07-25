@@ -9,7 +9,7 @@ class MnemicNavbar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar>
+        <Navbar bsStyle="inverse">
           <Navbar.Header>
             <Navbar.Brand>
               <Nav onClick={this.props.onHomeClick}>mnemic</Nav>

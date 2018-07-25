@@ -11,7 +11,11 @@ class Home extends React.Component {
       <div>
         <Grid>
           <Row>
-            <Col md={8} mdOffset={2}><h1>Start training your AI faster</h1></Col>
+            <Col md={8} mdOffset={2}>
+              <div style={{"text-align":"center"}}>
+                <h1>Start training your AI faster</h1>
+              </div>
+              </Col>
           </Row><br/>
           <Row>
             <Col md={8} mdOffset={2}>
