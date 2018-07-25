@@ -1,12 +1,14 @@
 import React from 'react'
-import {Grid, Row, Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap'
+import {Grid, Row, Col, ControlLabel, FormGroup, FormControl, Panel, Button } from 'react-bootstrap'
 
 class NewTaskGroup extends React.Component {
   constructor(props) {
     super(props);
     this.state= {
       task_type:"",
-      object_detection_images_file:""
+      object_detection_images_file:"",
+      num_tasks: 3,
+      cost:0.75
     }
   }
 
@@ -31,29 +33,38 @@ class NewTaskGroup extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="URL to newline delimited textfile of image links"/>
-              </FormGroup>
+                </FormGroup>
+                <ControlLabel>Objects to find in images</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="URL to file containing comma seprated list of objects"/>
+                </FormGroup>
+                <ControlLabel>Time to complete a single task</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Enter duration in minutes"/>
+                </FormGroup>
+                <ControlLabel>Project expiration time</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Enter duration in minutes"/>
+                </FormGroup>
+                <ControlLabel>Reward per task completed</ControlLabel>
+                <FormControl
+                  type="text"
+                  placeholder="Enter a value $0.00"/>
+                </FormGroup>
+                <Panel>
+                  <Panel.Body>
+                    Cost to label {this.state.num_tasks} images is ${this.state.cost}.
+                  </Panel.Body>
+                </Panel>
             </Col>
           </Row>
           <Row>
-            <Col>Add inputs</Col>
-          </Row>
-          <Row>
-            <Col>Define output</Col>
-          </Row>
-          <Row>
-            <Col>$/assignment</Col>
-          </Row>
-          <Row>
-            <Col>time to complete assignment</Col>
-          </Row>
-          <Row>
-            <Col>Expiration</Col>
-          </Row>
-          <Row>
-            <Col>Deploy assignments</Col>
-          </Row>
-          <Row>
-            <Col></Col>
+            <Col>
+              <Button>Deploy tasks</Button>
+            </Col>
           </Row>
         </Grid>
       </div>
