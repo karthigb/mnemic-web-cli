@@ -37,6 +37,7 @@ export default class Index extends React.Component {
 
     fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
@@ -46,14 +47,7 @@ export default class Index extends React.Component {
       })
     })
     .then( response => {
-      //Save photos to storage, then change display
-      FacebookActionCreators.clearPendingUploads();
-      FirebaseDispatcher.dispatch({
-        actionType: Constants.FIREBASE_ADDED_PHOTOS,
-        data: response
-      });
-      //Refresh saved photos
-    FirebaseActionCreators.getPhotos(account)
+      console.log(response);
     })
     .catch( error => {
       console.log("Error in Firebase AC: ", error);

@@ -5,7 +5,7 @@ class ActiveTaskGroups extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active_jobs = ["0","2","3"]
+      active_jobs : ["0","2","3"]
     }
   }
 
