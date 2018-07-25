@@ -19,44 +19,64 @@ class NewTaskGroup extends React.Component {
           <Row>
             <Col><h1>Create a new human intelligence task project</h1></Col>
           </Row>
-          <Row>
-            <Col>
-              <FormGroup>
+          <FormGroup>
+            <Row>
+              <Col md={4}>
                 <ControlLabel>Choose your task</ControlLabel>
                 <FormControl
                   componentClass="select">
                     <option value="object_detection">Object detection</option>
-                    <option value="tweet_analysis" disabled="true">Tweet sentiment analysis</option>
-                    <option value="image_tag" disabled="true">Image tagging</option>
+                    <option value="tweet_analysis" disabled="true">Text sentiment analysis (coming soon)</option>
+                    <option value="image_tag" disabled="true">Image tagging (coming soon)</option>
                 </FormControl>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
                 <ControlLabel>Unlabelled images</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="URL to newline delimited textfile of image links"/>
+              </Col>
+              <Col md={4} mdOffset={4}>
                 <ControlLabel>Objects to find in images</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="URL to file containing comma seprated list of objects"/>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
                 <ControlLabel>Time to complete a single task</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter duration in minutes"/>
+              </Col>
+              <Col md={4} mdOffset={4}>
                 <ControlLabel>Project expiration time</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter duration in minutes"/>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
                 <ControlLabel>Reward per task completed</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter a value $0.00"/>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={4}>
                 <Panel>
                   <Panel.Body>
                     Cost to label {this.state.num_tasks} images is ${this.state.cost}.
                   </Panel.Body>
                 </Panel>
-	      </FormGroup>
-	    </Col>
-          </Row>
+              </Col>
+            </Row>
+	        </FormGroup>
           <Row>
             <Col>
               <Button>Deploy tasks</Button>
