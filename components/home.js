@@ -11,24 +11,21 @@ class Home extends React.Component {
       <div>
         <Grid>
           <Row>
-            <Col md={8} mdOffset={2}><h1>Automate your data labeling with nmemic</h1></Col>
-          </Row>
+            <Col md={8} mdOffset={2}><h1>Start training your AI faster</h1></Col>
+          </Row><br/>
           <Row>
-            <Col mdOffset={2}>
-              <Button bsStyle="primary" bsSize="lg" onClick={this.props.onNewTaskClick}>Create new tasks</Button>
+            <Col md={8} mdOffset={2}>
+              <h3>nmemic frees data scientists and AI developers from the tedium of labeling their training data by outsourcing it to the MTurk marketplace</h3>
             </Col>
-          </Row>
+          </Row><br/><br/>
           <Row>
-            <Col>See active task groups</Col>
-          </Row>
-          <Row>
-            <Col>See past task groups</Col>
-          </Row>
-          <Row>
-            <Col>Create new tasks</Col>
-          </Row>
-          <Row>
-            <Col>Cleanup expiered tasks</Col>
+            <Col>
+              <div style={{"text-align":"center"}}>
+                <Button bsStyle="primary" bsSize="lg" onClick={this.props.onNewTaskClick}>
+                  Create new tasks
+                </Button>
+              </div>
+            </Col>
           </Row>
         </Grid>
       </div>
