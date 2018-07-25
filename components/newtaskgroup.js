@@ -19,7 +19,7 @@ class NewTaskGroup extends React.Component {
   }
 
   calculateCost(e) {
-    if(!iNaN(this.state.reward_ref.value)) {
+    if(!isNaN(this.state.reward_ref.value)) {
       this.setState({cost: parseFloat(this.state.reward_ref.value)*this.state.num_tasks});
     }
   }
