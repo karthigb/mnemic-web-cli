@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col, ControlLabel, FormGroup, FormControl, Panel, Button } from 'react-bootstrap'
+import {Grid, Row, Col, ControlLabel, FormGroup, FormControl, Button, Badge } from 'react-bootstrap'
 
 class NewTaskGroup extends React.Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class NewTaskGroup extends React.Component {
         <Grid>
           <Row>
             <Col><h1>Create a new human intelligence task project</h1></Col>
-          </Row>
+          </Row><br/><br/>
           <FormGroup>
             <Row>
               <Col md={4}>
@@ -69,19 +69,17 @@ class NewTaskGroup extends React.Component {
             </Row><br/>
             <Row>
               <Col md={4}>
-                <Panel>
-                  <Panel.Body>
-                    Cost to label {this.state.num_tasks} images is ${this.state.cost}.
-                  </Panel.Body>
-                </Panel>
+                <p>
+                  Cost to label {this.state.num_tasks} images is <Badge>${this.state.cost}</Badge>.
+                </p>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={2}>
+                <Button bsStyle="primary">Deploy tasks</Button>
               </Col>
             </Row>
 	        </FormGroup>
-          <Row>
-            <Col>
-              <Button>Deploy tasks</Button>
-            </Col>
-          </Row>
         </Grid>
       </div>
     );
