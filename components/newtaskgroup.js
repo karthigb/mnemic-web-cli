@@ -6,10 +6,30 @@ class NewTaskGroup extends React.Component {
     super(props);
     this.state= {
       task_type:"",
-      object_detection_images_file:"",
+      images_file_url_ref:null,
+      objects_file_url_ref:null,
+      hit_time_given_ref:null,
+      project_expiration_ref:null,
+      reward_ref:null,
       num_tasks: 3,
-      cost:0.75
+      cost:0
     }
+    this.calculateCost = this.calculateCost.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  calculateCost(e) {
+    if(!iNaN(this.state.reward_ref.value)) {
+      this.setState({cost: parseFloat(this.state.reward_ref.value)*this.state.num_tasks});
+    }
+  }
+
+  handleSubmit(e) {
+    console.log(this.state.images_file_url_ref.value);
+    console.log(this.state.objects_file_url_ref.value);
+    console.log(this.state.hit_time_given_ref.value);
+    console.log(this.state.project_expiration_ref.value);
+    console.log(this.state.reward_ref.value);
   }
 
   render() {
@@ -36,12 +56,14 @@ class NewTaskGroup extends React.Component {
                 <ControlLabel>Unlabelled images</ControlLabel>
                 <FormControl
                   type="text"
+                  inputRef={ref => { this.state.images_file_url_ref = ref; }}
                   placeholder="URL to newline delimited textfile of image links"/>
               </Col>
               <Col md={4}>
                 <ControlLabel>Objects to find in images</ControlLabel>
                 <FormControl
                   type="text"
+                  inputRef={ref => { this.state.objects_file_url_ref = ref; }}
                   placeholder="URL to file containing comma seprated list of objects"/>
               </Col>
             </Row><br/>
@@ -50,12 +72,14 @@ class NewTaskGroup extends React.Component {
                 <ControlLabel>Time to complete a single task</ControlLabel>
                 <FormControl
                   type="text"
+                  inputRef={ref => { this.state.hit_time_given_ref = ref; }}
                   placeholder="Enter duration in minutes"/>
               </Col>
               <Col md={4}>
                 <ControlLabel>Project expiration time</ControlLabel>
                 <FormControl
                   type="text"
+                  inputRef={ref => { this.state.project_expiration_ref = ref; }}
                   placeholder="Enter duration in minutes"/>
               </Col>
             </Row><br/>
@@ -64,6 +88,8 @@ class NewTaskGroup extends React.Component {
                 <ControlLabel>Reward per task completed</ControlLabel>
                 <FormControl
                   type="text"
+                  inputRef={ref => { this.state.reward_ref = ref; }}
+                  onChange={this.calculateCost}
                   placeholder="Enter a value $0.00"/>
               </Col>
             </Row><br/>
@@ -76,7 +102,7 @@ class NewTaskGroup extends React.Component {
             </Row>
             <Row>
               <Col md={2}>
-                <Button bsStyle="primary">Deploy tasks</Button>
+                <Button bsStyle="primary" onClick={this.handleSubmit}>Deploy tasks</Button>
               </Col>
             </Row>
 	        </FormGroup>
