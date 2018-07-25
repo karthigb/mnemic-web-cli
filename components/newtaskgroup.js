@@ -30,7 +30,7 @@ class NewTaskGroup extends React.Component {
                     <option value="image_tag" disabled="true">Image tagging (coming soon)</option>
                 </FormControl>
               </Col>
-            </Row>
+            </Row><br/>
             <Row>
               <Col md={4}>
                 <ControlLabel>Unlabelled images</ControlLabel>
@@ -38,13 +38,13 @@ class NewTaskGroup extends React.Component {
                   type="text"
                   placeholder="URL to newline delimited textfile of image links"/>
               </Col>
-              <Col md={4} mdOffset={4}>
+              <Col md={4}>
                 <ControlLabel>Objects to find in images</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="URL to file containing comma seprated list of objects"/>
               </Col>
-            </Row>
+            </Row><br/>
             <Row>
               <Col md={4}>
                 <ControlLabel>Time to complete a single task</ControlLabel>
@@ -52,13 +52,13 @@ class NewTaskGroup extends React.Component {
                   type="text"
                   placeholder="Enter duration in minutes"/>
               </Col>
-              <Col md={4} mdOffset={4}>
+              <Col md={4}>
                 <ControlLabel>Project expiration time</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter duration in minutes"/>
               </Col>
-            </Row>
+            </Row><br/>
             <Row>
               <Col md={4}>
                 <ControlLabel>Reward per task completed</ControlLabel>
@@ -66,7 +66,7 @@ class NewTaskGroup extends React.Component {
                   type="text"
                   placeholder="Enter a value $0.00"/>
               </Col>
-            </Row>
+            </Row><br/>
             <Row>
               <Col md={4}>
                 <Panel>
