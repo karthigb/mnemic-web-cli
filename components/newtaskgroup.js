@@ -33,27 +33,27 @@ class NewTaskGroup extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="URL to newline delimited textfile of image links"/>
-                </FormGroup>
+                </FormControl>
                 <ControlLabel>Objects to find in images</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="URL to file containing comma seprated list of objects"/>
-                </FormGroup>
+                </FormControl>
                 <ControlLabel>Time to complete a single task</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter duration in minutes"/>
-                </FormGroup>
+                </FormControl>
                 <ControlLabel>Project expiration time</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter duration in minutes"/>
-                </FormGroup>
+                </FormControl>
                 <ControlLabel>Reward per task completed</ControlLabel>
                 <FormControl
                   type="text"
                   placeholder="Enter a value $0.00"/>
-                </FormGroup>
+                </FormControl>
                 <Panel>
                   <Panel.Body>
                     Cost to label {this.state.num_tasks} images is ${this.state.cost}.
