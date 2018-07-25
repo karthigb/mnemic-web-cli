@@ -34,6 +34,32 @@ export default class Index extends React.Component {
 
   onNewTaskClick(e){
     this.setState({view: 'newtaskgroup'});
+
+    fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        "url": "www.google.com"
+      })
+    })
+    .then( response => {
+      //Save photos to storage, then change display
+      FacebookActionCreators.clearPendingUploads();
+      FirebaseDispatcher.dispatch({
+        actionType: Constants.FIREBASE_ADDED_PHOTOS,
+        data: response
+      });
+      //Refresh saved photos
+    FirebaseActionCreators.getPhotos(account)
+    })
+    .catch( error => {
+      console.log("Error in Firebase AC: ", error);
+    });
+
+
   }
 
   render() {
