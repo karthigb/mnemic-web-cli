@@ -7,16 +7,13 @@ class ActiveTaskGroups extends React.Component {
   }
 
   render() {
-    console.log(this.props.active_task_groups)
-    var groups = Object.keys(this.props.active_task_groups).map(
-      (group,i) => (
-        for(var k=0; i < this.props.active_task_groups[group].length; i++) {
-          <ListGroupItem>{this.props.active_task_groups[group][i]['group_id']}</ListGroupItem>
-          <ListGroupItem>{this.props.active_task_groups[group][i]['id']}</ListGroupItem>
-          <ListGroupItem>{this.props.active_task_groups[group][i]['url']}</ListGroupItem>
-        }
-      )
-    );
+    console.log(this.props.active_hits);
+    var hits =[];
+    for(var i=0; i < this.props.active_hits.length; i++) {
+      hits.push(<ListGroupItem>{this.props.active_hits[i]['group_id']}</ListGroupItem>);
+      hits.push(<ListGroupItem>{this.props.active_hits[i]['id']}</ListGroupItem>);
+      hits.push(<ListGroupItem>{this.props.active_hits[i]['url']}</ListGroupItem>);
+    });
 
     return (
       <div>
@@ -26,7 +23,7 @@ class ActiveTaskGroups extends React.Component {
           </Row>
           <Row>
             <Col><div>
-              {groups}
+              {hits}
             </div></Col>
           </Row>
         </Grid>
