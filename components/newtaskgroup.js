@@ -25,12 +25,6 @@ class NewTaskGroup extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.state.images_file_url_ref.value);
-    console.log(this.state.objects_file_url_ref.value);
-    console.log(this.state.hit_time_given_ref.value);
-    console.log(this.state.project_expiration_ref.value);
-    console.log(this.state.reward_ref.value);
-
     fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
       method: 'POST',
       headers: {
@@ -54,7 +48,7 @@ class NewTaskGroup extends React.Component {
       <div>
         <Grid>
           <Row>
-            <Col><h1>Create a new human intelligence task project</h1></Col>
+            <Col><h1>Create new human intelligence tasks</h1></Col>
           </Row><br/><br/>
           <FormGroup>
             <Row>
