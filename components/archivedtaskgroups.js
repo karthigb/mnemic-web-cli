@@ -7,14 +7,6 @@ class ArchivedTaskGroups extends React.Component {
   }
 
   render() {
-    console.log(this.props.active_hits);
-    var hits =[];
-    for(var i=0; i < this.props.active_hits.length; i++) {
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['group_id']}</ListGroupItem>);
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['id']}</ListGroupItem>);
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['url']}</ListGroupItem>);
-    };
-    
     return (
       <div>
         <Grid>

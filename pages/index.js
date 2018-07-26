@@ -129,7 +129,8 @@ export default class Index extends React.Component {
         <MnemicNavbar onActiveTaskGroupsClick={this.onActiveTaskGroupsClick}
                       onArchivedTaskGroupsClick={this.onArchivedTaskGroupsClick}
                       onHomeClick={this.onHomeClick}
-                      num_groups={this.state.num_groups}/>
+                      num_groups={this.state.num_groups}
+                      completed_hits={this.state.completed_hits}/>
         <div>
           {component}
         </div>

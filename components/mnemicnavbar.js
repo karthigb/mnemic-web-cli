@@ -11,6 +11,11 @@ class MnemicNavbar extends React.Component {
     if(this.props.active_tasks!=[]){
       badge = <Badge>{this.props.num_groups}</Badge>;
     }
+
+    let badge2;
+    if(this.props.completed_hits!=[]) {
+      badge2 = <Badge>{this.props.completed_hits.length}</Badge>
+    }
     return (
       <div>
         <Navbar bsStyle="inverse">
@@ -24,7 +29,7 @@ class MnemicNavbar extends React.Component {
               Active task groups {badge}
             </NavItem>
             <NavItem onClick={this.props.onArchivedTaskGroupsClick}>
-              Completed task groups
+              Completed task groups {badge2}
             </NavItem>
           </Nav>
         </Navbar>
