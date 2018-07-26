@@ -10,9 +10,9 @@ class ActiveTaskGroups extends React.Component {
     console.log(this.props.active_hits);
     var hits =[];
     for(var i=0; i < this.props.active_hits.length; i++) {
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['group_id']}</ListGroupItem>);
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['id']}</ListGroupItem>);
-      hits.push(<ListGroupItem>{this.props.active_hits[i]['url']}</ListGroupItem>);
+      hits.push(<ListGroup>GROUP ID: {this.props.active_hits[i]['group_id']});
+      hits.push(<ListGroupItem>TASK ID: {this.props.active_hits[i]['id']}</ListGroupItem>);
+      hits.push(<ListGroupItem>IMAGE: {this.props.active_hits[i]['url']}</ListGroupItem></ListGroup>);
     };
 
     return (
