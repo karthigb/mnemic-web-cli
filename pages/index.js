@@ -45,19 +45,6 @@ export default class Index extends React.Component {
     this.getActiveHits();
   }
 
-  getActiveTaskGroups(hits){
-    var task_groups = []
-    var known_ids = {};
-
-    hits.forEach(function(hit){
-      if(known_ids[hit]!=1){
-        task_groups.push(hit);
-        known_ids[hit]=1;
-      }
-    });
-    return task_groups
-  }
-
   getActiveHits(){
       var url = 'https://mnemicmturk.azurewebsites.net/api/readFromCosmos';
       fetch(url,{
