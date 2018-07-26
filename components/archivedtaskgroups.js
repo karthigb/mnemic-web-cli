@@ -12,7 +12,7 @@ class ArchivedTaskGroups extends React.Component {
       hits.push(<ListGroup><h4> GROUP ID: {this.props.completed_hits[i]['group_id']}</h4>
                   <ListGroupItem>TASK ID: {this.props.completed_hits[i]['id']}</ListGroupItem>
                   <ListGroupItem>IMAGE: {this.props.completed_hits[i]['url']}</ListGroupItem>
-                  <ListGroupItem>LABALED DATA: {this.props.completed_hits[i]['value']}</ListGroupItem>
+                  <ListGroupItem>LABALED DATA: {JSON.stringify(this.props.completed_hits[i]['value'])}</ListGroupItem>
                 </ListGroup>);
     };
 
