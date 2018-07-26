@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col, ControlLabel, FormGroup, FormControl, Button, Badge } from 'react-bootstrap'
+import {Grid, Row, Col, ControlLabel, FormGroup, FormControl, Button, Badge, Modal } from 'react-bootstrap'
 
 class NewTaskGroup extends React.Component {
   constructor(props) {
@@ -12,10 +12,12 @@ class NewTaskGroup extends React.Component {
       project_expiration_ref:null,
       reward_ref:null,
       num_tasks: 3,
-      cost:0
+      cost:0,
+      show_modal:false
     }
     this.calculateCost = this.calculateCost.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   calculateCost(e) {
@@ -24,7 +26,12 @@ class NewTaskGroup extends React.Component {
     }
   }
 
+  handleClose(e) {
+    this.setState({show_modal:false});
+  }
+
   handleSubmit(e) {
+    this.setState({show_modal:true});
     fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
       method: 'POST',
       headers: {
@@ -115,6 +122,12 @@ class NewTaskGroup extends React.Component {
               <Col md={2}>
                 <Button bsStyle="primary" onClick={this.handleSubmit}>Deploy tasks</Button>
               </Col>
+              <Modal show={this.state.show_modal} onHide={this.handleClose}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Tasks created</Modal.Title>
+                </Modal.Header>
+                <Modal.Body> See your progress in active tasks</Modal.Body>
+              </Modal>
             </Row>
 	        </FormGroup>
         </Grid>
