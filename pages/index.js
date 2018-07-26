@@ -13,8 +13,9 @@ export default class Index extends React.Component {
     super(props);
     this.state = {
       view: 'home',
-      active_task_groups : [],
-      active_hits: []
+      active_task_groups : {},
+      active_hits: [],
+      num_groups:0
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
     this.onArchivedTaskGroupsClick = this.onArchivedTaskGroupsClick.bind(this);
@@ -41,7 +42,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount(){
-    getActiveHits();
+    this.getActiveHits();
   }
 
   getActiveTaskGroups(hits){
@@ -69,10 +70,21 @@ export default class Index extends React.Component {
         else throw new Error('Something went wrong on api server!');
       })
       .then( response => {
-        this.setState({active_task_groups:response['active_hits']});
+        this.setState({active_hits:response['active_hits']});
+
+        var groups = {}
         for(var i=0;i<response['active_hits'].length;i++){
-          console.log(response['active_hits'][i]);
+          let hit = response['active_hits'][i];
+          if(groups.hasOwnProperty(hit['group_id'])){
+            groups[hit['group_id']].push(hit);
+          } else {
+            groups[hit['group_id']] = [hit];
+            this.setState({
+              num_groups: num_groups+1
+            });
+          }
         }
+        this.setState({active_task_groups:groups});
       })
       .catch(function(error) {
         console.log("ERROR: ", error);
@@ -106,7 +118,7 @@ export default class Index extends React.Component {
         <MnemicNavbar onActiveTaskGroupsClick={this.onActiveTaskGroupsClick}
                       onArchivedTaskGroupsClick={this.onArchivedTaskGroupsClick}
                       onHomeClick={this.onHomeClick}
-                      active_task_groups={this.state.active_task_groups}/>
+                      num_groups={this.state.num_groups}/>
         <div>
           {component}
         </div>
