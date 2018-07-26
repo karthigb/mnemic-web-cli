@@ -15,6 +15,7 @@ export default class Index extends React.Component {
       view: 'home',
       active_task_groups : {},
       active_hits: [],
+      completed_hits: [],
       num_groups:0
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
@@ -22,6 +23,7 @@ export default class Index extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onNewTaskClick = this.onNewTaskClick.bind(this);
     this.getActiveHits = this.getActiveHits.bind(this);
+    this.getCompletedHits = this.getCompletedHits.bind(this);
   }
 
   onActiveTaskGroupsClick(e) {
@@ -42,6 +44,27 @@ export default class Index extends React.Component {
 
   componentDidMount(){
     this.getActiveHits();
+    this.getCompletedHits();
+  }
+
+  getCompletedHits() {
+    var url = 'https://mnemicmturk.azurewebsites.net/api/ReadCompletedHits';
+    fetch(url,{
+      method: 'GET',
+      mode: 'cors'
+    })
+    .then( response => {
+      console.log(response);
+      if(response.status == 200) return response.json();
+      else throw new Error('Something went wrong on api server!');
+    })
+    .then( response => {
+      console.log("Set completed hits!!");
+      this.setState({completed_hits:response['completed_hits']});
+    })
+    .catch(function(error) {
+      console.log("ERROR: ", error);
+    });
   }
 
   getActiveHits(){
@@ -86,7 +109,8 @@ export default class Index extends React.Component {
                                       getActiveTasks={this.getActiveHits}/>;
         break;
       case 'archivedtaskgroups':
-        component = <ArchivedTaskGroups/>;
+        component = <ArchivedTaskGroups completed_hits={this.state.completed_hits}
+                                        getCompletedHits={this.getCompletedHits}/>;
         break;
       case 'newtaskgroup':
         component = <NewTaskGroup/>;
