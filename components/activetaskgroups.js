@@ -13,7 +13,7 @@ class ActiveTaskGroups extends React.Component {
       hits.push(<ListGroupItem>{this.props.active_hits[i]['group_id']}</ListGroupItem>);
       hits.push(<ListGroupItem>{this.props.active_hits[i]['id']}</ListGroupItem>);
       hits.push(<ListGroupItem>{this.props.active_hits[i]['url']}</ListGroupItem>);
-    });
+    };
 
     return (
       <div>
