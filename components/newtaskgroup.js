@@ -25,11 +25,22 @@ class NewTaskGroup extends React.Component {
   }
 
   handleSubmit(e) {
-    let images_file_url = this.state.images_file_url_ref.value;
-    let objects_file_url = this.state.objects_file_url_ref.value;
-    let hit_time_given = this.state.hit_time_given_ref.value;
-    let project_expiration = this.state.project_expiration_ref.value;
-    let reward = this.state.reward_ref.value;
+    fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
+      method: 'POST',
+      headers: {
+        /*'Accept': 'application/json',
+        'Content-Type': 'application/json',*/
+      },
+      body: JSON.stringify({
+        urls: this.state.images_file_url_ref.value,
+        labels: this.state.objects_file_url_ref.value,
+        complete_time: this.state.hit_time_given_ref.value,
+        expiration_time: this.state.project_expiration_ref.value,
+        reward: this.state.reward_ref.value
+      })
+    }).then(function(response) {
+      console.log(response);
+    });
   }
 
   render() {
