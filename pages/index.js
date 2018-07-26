@@ -80,7 +80,7 @@ export default class Index extends React.Component {
           } else {
             groups[hit['group_id']] = [hit];
             this.setState({
-              num_groups: num_groups+1
+              num_groups: this.state.num_groups + 1
             });
           }
         }
