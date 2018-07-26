@@ -1,5 +1,5 @@
 import React from 'react'
-import {Grid, Row, Col} from 'react-bootstrap'
+import {Grid, Row, Col, ListGroup, ListGroupItem} from 'react-bootstrap'
 
 class ArchivedTaskGroups extends React.Component {
   constructor(props) {
@@ -15,7 +15,7 @@ class ArchivedTaskGroups extends React.Component {
                   <ListGroupItem>LABALED DATA: {this.props.completed_hits[i]['value']}</ListGroupItem>
                 </ListGroup>);
     };
-    
+
     return (
       <div>
         <Grid>
