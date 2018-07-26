@@ -82,6 +82,7 @@ export default class Index extends React.Component {
     switch(this.state.view){
       case 'activetaskgroups':
         component = <ActiveTaskGroups active_task_groups={this.state.active_task_groups}
+                                      active_hits={this.state.active_hits}
                                       getActiveTasks={this.getActiveHits}/>;
         break;
       case 'archivedtaskgroups':
