@@ -22,7 +22,6 @@ export default class Index extends React.Component {
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onNewTaskClick = this.onNewTaskClick.bind(this);
     this.getActiveHits = this.getActiveHits.bind(this);
-    this.getActiveTaskGroups = this.getActiveTaskGroups.bind(this);
   }
 
   onActiveTaskGroupsClick(e) {
