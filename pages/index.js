@@ -13,7 +13,8 @@ export default class Index extends React.Component {
     super(props);
     this.state = {
       view: 'home',
-      active_task_groups : []
+      active_task_groups : [],
+      active_hits: []
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
     this.onArchivedTaskGroupsClick = this.onArchivedTaskGroupsClick.bind(this);
@@ -40,13 +41,7 @@ export default class Index extends React.Component {
   }
 
   componentDidMount(){
-    var activeHits;
-    var activeGroups = [];
-    activeHits = this.getActiveHits();
-    if(activeHits){
-      activeGroups = this.getActiveTaskGroups(activeHits);
-      this.setState({active_task_groups:activeGroups});  
-    }
+    getActiveHits();
   }
 
   getActiveTaskGroups(hits){
@@ -74,11 +69,13 @@ export default class Index extends React.Component {
         else throw new Error('Something went wrong on api server!');
       })
       .then( response => {
-        return response['active_hits'];
+        this.setState({active_task_groups:response['active_hits']});
+        for(var i=0;i<response['active_hits'].length;i++){
+          console.log(response['active_hits'][i]);
+        }
       })
       .catch(function(error) {
         console.log("ERROR: ", error);
-        return [];
       });
   }
 
