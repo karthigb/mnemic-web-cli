@@ -36,7 +36,10 @@ export default class Index extends React.Component {
     this.setState({view: 'newtaskgroup'});
 
     var url = 'https://mnemicmturk.azurewebsites.net/api/GetActiveHits';
-    fetch(url)
+    fetch(url,{
+      method: 'GET',
+      mode: 'no-cors'
+    })
     .then( response => {
       console.log(response);
       if(response.status == 200) return response.json();
