@@ -7,20 +7,23 @@ class ArchivedTaskGroups extends React.Component {
   }
 
   render() {
+    var hits =[];
+    for(var i=0; i < this.props.completed_hits.length; i++) {
+      hits.push(<ListGroup><h4> GROUP ID: {this.props.completed_hits[i]['group_id']}</h4>
+                  <ListGroupItem>TASK ID: {this.props.completed_hits[i]['id']}</ListGroupItem>
+                  <ListGroupItem>IMAGE: {this.props.completed_hits[i]['url']}</ListGroupItem>
+                  <ListGroupItem>LABALED DATA: {this.props.completed_hits[i]['value']}</ListGroupItem>
+                </ListGroup>);
+    };
+    
     return (
       <div>
         <Grid>
           <Row>
-            <Col><h1>CompleteTaskGroups</h1></Col>
+            <Col><h1>Completed Tasks</h1></Col>
           </Row>
           <Row>
-            <Col>See HITS in group</Col>
-          </Row>
-          <Row>
-            <Col>See output</Col>
-          </Row>
-          <Row>
-            <Col>See input</Col>
+            <Col>{hits}</Col>
           </Row>
         </Grid>
       </div>
