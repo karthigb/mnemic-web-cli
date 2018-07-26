@@ -10,6 +10,8 @@ class ActiveTaskGroups extends React.Component {
 
     var groups = Object.keys(this.props.active_task_groups).map(
       (group,i) => (
+        console.log(this.props.active_task_groups[group]);
+        console.log(this.props.active_task_groups[group]['group_id']);
         <div>
           <ListGroup>{this.props.active_task_groups[group]['group_id']}</ListGroup>
           <div>
