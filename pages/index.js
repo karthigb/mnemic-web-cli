@@ -12,12 +12,14 @@ export default class Index extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: 'home'
+      view: 'home',
+      active_tasks = []
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
     this.onArchivedTaskGroupsClick = this.onArchivedTaskGroupsClick.bind(this);
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onNewTaskClick = this.onNewTaskClick.bind(this);
+    this.getActiveTasks = this.getActiveTasks.bind(this);
   }
 
   onActiveTaskGroupsClick(e) {
@@ -34,50 +36,37 @@ export default class Index extends React.Component {
 
   onNewTaskClick(e){
     this.setState({view: 'newtaskgroup'});
+  }
 
-    var url = 'https://mnemicmturk.azurewebsites.net/api/readFromCosmos';
-    fetch(url,{
-      method: 'GET',
-      mode: 'cors'
-    })
-    .then( response => {
-      console.log(response);
-      if(response.status == 200) return response.json();
-      else throw new Error('Something went wrong on api server!');
-    })
-    .then( response => {
-      console.log("b: ",response);
-    })
-    .catch(function(error) {
-      console.log("Firebase AC getPhotos catch: ", error);
-    });
+  componentDidMount(){
+    this.getActiveTasks();
+  }
 
-    // fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
-    //   method: 'POST',
-    //   mode: 'no-cors',
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     "url": "www.google.com"
-    //   })
-    // })
-    // .then( response => {
-    //   console.log(response);
-    // })
-    // .catch( error => {
-    //   console.log("Error in Firebase AC: ", error);
-    // });
-
-
+  getActiveTasks(){
+      var url = 'https://mnemicmturk.azurewebsites.net/api/readFromCosmos';
+      fetch(url,{
+        method: 'GET',
+        mode: 'cors'
+      })
+      .then( response => {
+        console.log(response);
+        if(response.status == 200) return response.json();
+        else throw new Error('Something went wrong on api server!');
+      })
+      .then( response => {
+        this.setState({active_tasks:response});
+      })
+      .catch(function(error) {
+        console.log("ERROR: ", error);
+      });
   }
 
   render() {
     let component;
     switch(this.state.view){
       case 'activetaskgroups':
-        component = <ActiveTaskGroups/>;
+        component = <ActiveTaskGroups active_tasks={this.state.active_tasks}
+                                      getActiveTasks={this.getActiveTasks}/>;
         break;
       case 'archivedtaskgroups':
         component = <ArchivedTaskGroups/>;
@@ -98,7 +87,8 @@ export default class Index extends React.Component {
         </Head>
         <MnemicNavbar onActiveTaskGroupsClick={this.onActiveTaskGroupsClick}
                       onArchivedTaskGroupsClick={this.onArchivedTaskGroupsClick}
-                      onHomeClick={this.onHomeClick}/>
+                      onHomeClick={this.onHomeClick}
+                      active_tasks={this.state.active_tasks}/>
         <div>
           {component}
         </div>

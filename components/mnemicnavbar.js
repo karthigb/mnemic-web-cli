@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, NavItem } from 'react-bootstrap'
+import { Navbar, Nav, NavItem, Badge } from 'react-bootstrap'
 
 class MnemicNavbar extends React.Component {
   constructor(props) {
@@ -7,6 +7,10 @@ class MnemicNavbar extends React.Component {
   }
 
   render() {
+    let badge;
+    if(this.props.active_tasks!=[]){
+      badge = <Badge>{this.props.active_tasks.length}</Badge>;
+    }
     return (
       <div>
         <Navbar bsStyle="inverse">
@@ -17,7 +21,7 @@ class MnemicNavbar extends React.Component {
           </Navbar.Header>
           <Nav>
             <NavItem onClick={this.props.onActiveTaskGroupsClick}>
-              View active task groups
+              View active task groups {badge}
             </NavItem>
             <NavItem onClick={this.props.onArchivedTaskGroupsClick}>
               View archived task groups
