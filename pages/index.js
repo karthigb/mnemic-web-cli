@@ -13,7 +13,7 @@ export default class Index extends React.Component {
     super(props);
     this.state = {
       view: 'home',
-      active_tasks = []
+      active_task_groups : []
     }
     this.onActiveTaskGroupsClick = this.onActiveTaskGroupsClick.bind(this);
     this.onArchivedTaskGroupsClick = this.onArchivedTaskGroupsClick.bind(this);
@@ -54,7 +54,7 @@ export default class Index extends React.Component {
         else throw new Error('Something went wrong on api server!');
       })
       .then( response => {
-        this.setState({active_tasks:response});
+        this.setState({active_task_groups:response['active_hits']});
       })
       .catch(function(error) {
         console.log("ERROR: ", error);
@@ -65,7 +65,7 @@ export default class Index extends React.Component {
     let component;
     switch(this.state.view){
       case 'activetaskgroups':
-        component = <ActiveTaskGroups active_tasks={this.state.active_tasks}
+        component = <ActiveTaskGroups active_task_groups={this.state.active_task_groups}
                                       getActiveTasks={this.getActiveTasks}/>;
         break;
       case 'archivedtaskgroups':
@@ -88,7 +88,7 @@ export default class Index extends React.Component {
         <MnemicNavbar onActiveTaskGroupsClick={this.onActiveTaskGroupsClick}
                       onArchivedTaskGroupsClick={this.onArchivedTaskGroupsClick}
                       onHomeClick={this.onHomeClick}
-                      active_tasks={this.state.active_tasks}/>
+                      active_task_groups={this.state.active_task_groups}/>
         <div>
           {component}
         </div>

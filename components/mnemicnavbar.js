@@ -9,7 +9,7 @@ class MnemicNavbar extends React.Component {
   render() {
     let badge;
     if(this.props.active_tasks!=[]){
-      badge = <Badge>{this.props.active_tasks.length}</Badge>;
+      badge = <Badge>{this.props.active_task_groups.length}</Badge>;
     }
     return (
       <div>
