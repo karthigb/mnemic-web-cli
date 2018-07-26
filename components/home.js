@@ -19,7 +19,7 @@ class Home extends React.Component {
           </Row><br/>
           <Row>
             <Col md={8} mdOffset={2}>
-              <h3>nmemic frees data scientists and AI developers from the tedium of labeling their training data by outsourcing it to the MTurk marketplace</h3>
+              <h3>mnemic frees data scientists and AI developers from the tedium of labeling their training data by outsourcing it to the MTurk marketplace</h3>
             </Col>
           </Row><br/><br/>
           <Row>

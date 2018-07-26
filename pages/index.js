@@ -19,7 +19,8 @@ export default class Index extends React.Component {
     this.onArchivedTaskGroupsClick = this.onArchivedTaskGroupsClick.bind(this);
     this.onHomeClick = this.onHomeClick.bind(this);
     this.onNewTaskClick = this.onNewTaskClick.bind(this);
-    this.getActiveTasks = this.getActiveTasks.bind(this);
+    this.getActiveHits = this.getActiveHits.bind(this);
+    this.getActiveTaskGroups = this.getActiveTaskGroups.bind(this);
   }
 
   onActiveTaskGroupsClick(e) {
@@ -39,10 +40,27 @@ export default class Index extends React.Component {
   }
 
   componentDidMount(){
-    this.getActiveTasks();
+    var activeHits;
+    var activeGroups;
+    activeHits = this.getActiveHits();
+    activeGroups = this.getActiveTaskGroups(activeHits);
+    this.setState({active_task_groups:activeGroups});
   }
 
-  getActiveTasks(){
+  getActiveTaskGroups(hits){
+    var task_groups = []
+    var known_ids = {};
+
+    hits.forEach(function(hit){
+      if(known_ids[hit]!=1){
+        task_groups.push(hit);
+        known_ids[hit]=1;
+      }
+    });
+    return task_groups
+  }
+
+  getActiveHits(){
       var url = 'https://mnemicmturk.azurewebsites.net/api/readFromCosmos';
       fetch(url,{
         method: 'GET',
@@ -54,7 +72,7 @@ export default class Index extends React.Component {
         else throw new Error('Something went wrong on api server!');
       })
       .then( response => {
-        this.setState({active_task_groups:response['active_hits']});
+        return response['active_hits'];
       })
       .catch(function(error) {
         console.log("ERROR: ", error);
@@ -66,7 +84,7 @@ export default class Index extends React.Component {
     switch(this.state.view){
       case 'activetaskgroups':
         component = <ActiveTaskGroups active_task_groups={this.state.active_task_groups}
-                                      getActiveTasks={this.getActiveTasks}/>;
+                                      getActiveTasks={this.getActiveHits}/>;
         break;
       case 'archivedtaskgroups':
         component = <ArchivedTaskGroups/>;

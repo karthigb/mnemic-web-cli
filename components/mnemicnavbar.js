@@ -21,10 +21,10 @@ class MnemicNavbar extends React.Component {
           </Navbar.Header>
           <Nav>
             <NavItem onClick={this.props.onActiveTaskGroupsClick}>
-              View active task groups {badge}
+              Active task groups {badge}
             </NavItem>
             <NavItem onClick={this.props.onArchivedTaskGroupsClick}>
-              View archived task groups
+              Completed task groups
             </NavItem>
           </Nav>
         </Navbar>
