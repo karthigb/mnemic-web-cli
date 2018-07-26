@@ -41,10 +41,12 @@ export default class Index extends React.Component {
 
   componentDidMount(){
     var activeHits;
-    var activeGroups;
+    var activeGroups = [];
     activeHits = this.getActiveHits();
-    activeGroups = this.getActiveTaskGroups(activeHits);
-    this.setState({active_task_groups:activeGroups});
+    if(activeHits){
+      activeGroups = this.getActiveTaskGroups(activeHits);
+      this.setState({active_task_groups:activeGroups});  
+    }
   }
 
   getActiveTaskGroups(hits){
@@ -76,6 +78,7 @@ export default class Index extends React.Component {
       })
       .catch(function(error) {
         console.log("ERROR: ", error);
+        return [];
       });
   }
 
