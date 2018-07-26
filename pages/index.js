@@ -35,23 +35,37 @@ export default class Index extends React.Component {
   onNewTaskClick(e){
     this.setState({view: 'newtaskgroup'});
 
-    fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        "url": "www.google.com"
-      })
-    })
+    var url = 'https://mnemicmturk.azurewebsites.net/api/GetActiveHits';
+    fetch(url)
     .then( response => {
       console.log(response);
+      if(response.status == 200) return response.json();
+      else throw new Error('Something went wrong on api server!');
     })
-    .catch( error => {
-      console.log("Error in Firebase AC: ", error);
+    .then( response => {
+      console.log("b: ",response);
+    })
+    .catch(function(error) {
+      console.log("Firebase AC getPhotos catch: ", error);
     });
+
+    // fetch('https://mnemicmturk.azurewebsites.net/api/UpdateMturkCosmos', {
+    //   method: 'POST',
+    //   mode: 'no-cors',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({
+    //     "url": "www.google.com"
+    //   })
+    // })
+    // .then( response => {
+    //   console.log(response);
+    // })
+    // .catch( error => {
+    //   console.log("Error in Firebase AC: ", error);
+    // });
 
 
   }
