@@ -35,10 +35,10 @@ export default class Index extends React.Component {
   onNewTaskClick(e){
     this.setState({view: 'newtaskgroup'});
 
-    var url = 'https://mnemicmturk.azurewebsites.net/api/GetActiveHits';
+    var url = 'https://mnemicmturk.azurewebsites.net/api/readFromCosmos';
     fetch(url,{
       method: 'GET',
-      mode: 'no-cors'
+      mode: 'cors'
     })
     .then( response => {
       console.log(response);
