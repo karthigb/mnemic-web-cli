@@ -27,7 +27,17 @@ class NewTaskGroup extends React.Component {
   }
 
   handleClose(e) {
-    this.setState({show_modal:false});
+    this.setState({
+      task_type:"",
+      images_file_url_ref:null,
+      objects_file_url_ref:null,
+      hit_time_given_ref:null,
+      project_expiration_ref:null,
+      reward_ref:null,
+      num_tasks: 3,
+      cost:0,
+      show_modal:false
+    });
   }
 
   handleSubmit(e) {
